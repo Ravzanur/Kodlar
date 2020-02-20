@@ -1,0 +1,154 @@
+/*Ravzanur CANTÜRK
+ * Ödev 1
+ * Farklı şekillerde üçgen bastırma
+ */
+#include <iostream>
+
+using namespace std;
+
+void duzucgen(int boyut){
+	int satir=(boyut+1)/2;//kullanıcının istediği boyut sayısına göre satır sayısını bulma
+	for(int a=1;a<=satir;a++){//satır atlama için döngü
+		int bosluk=(boyut-1)/2;
+		int yildiz=(2*a)-1;
+		for(int b=1;b<=bosluk;b++){//boşluklar için döngü
+			cout << " ";
+		}
+		for(int c=1;c<=yildiz;c++){//yıldızlar için döngü
+			cout << "*";
+		}
+		cout << endl;
+		boyut=boyut-2;//boyut sayısını azaltma
+	}
+}
+void tersucgen(int boyut){
+	int satir=(boyut+1)/2;//kullanıcının istediği boyut sayısına göre satır sayısını bulma
+	int sabit=satir;
+	int sira=satir;
+	int a=1;//satır sayısını döndürmek için bir değişken
+	while(satir>=a){//satır için döngü
+		int b=1,c=1;
+		int bosluk=sabit-sira;//boşluk sayısını hesaplama
+		while(bosluk>=b){//boşluk için döngü
+			cout << " ";
+			b++;
+		}
+		while(boyut>=c){//yıldız için döngü
+			cout << "*";
+			c++;
+		}
+	
+		cout << endl;
+		a++;
+		sira--;//boşluk sayısının artması için sıra sayısını azaltma
+		boyut=boyut-2;//yıldız sayısı için
+	}
+}
+void elmasust(int boyut){//elmas şeklinin üst tarafı için
+	int satir=(boyut+1)/2;//kullanıcının istediği boyut sayısına göre satır sayısını bulma
+	int yildiz=1;
+	int a=1;
+	A://satır döngüsü için goto noktası
+	if(a<=satir){
+		int bosluk=(boyut-1)/2;
+		int b=1,c=1;
+		B://boşluk döngüsü için goto noktası
+		if(b<=bosluk){
+			cout << " ";
+			b++;
+			goto B;//gerekliyse tekrar boşluk basması için goto
+		}
+		C://yıldız döngüsü için goto noktası
+		if(c<=yildiz){
+			cout << "*";
+			c++;
+			goto C;//gerekliyse tekrar yıldız basması için goto
+		}
+		cout << endl;
+		a++;
+		yildiz=yildiz+2;
+		boyut=boyut-2;//boşluk sayısının değişmesi için bıyutu değiştirme
+		goto A;//bir sonraki satır için ifin başına git
+	}
+	
+}
+void elmasalt(int boyut){//elmas şeklinin alt tarafı için
+	int satir=(boyut+1)/2;//kullanıcının istediği boyut sayısına göre satır sayısını bulma
+	int sabit=satir;
+	int sira=satir;
+	int a=1;
+	D://satır döngüsü için goto noktası
+	if(a<=satir){
+		int b=1,c=1;
+		int bosluk=sabit-sira;
+		E://boşluk döngüsü için goto noktası
+		if(b<=bosluk){
+			cout << " ";
+			b++;
+			goto E;//gerekliyse tekrar boşluk basması için goto
+		}
+		F://yıldız döngüsü için goto noktası
+		if(c<=boyut){
+			cout << "*";
+			c++;
+			goto F;//gerekliyse tekrar yıldız basması için goto
+		}
+		a++;
+		cout << endl;
+		sira--;
+		boyut=boyut-2;
+		goto D;//bir sonraki satır için ifin başına git
+	}
+	
+}	
+int main(int argc, char **argv)
+{
+	cout << "Bu program 3 farkli sekil cizebilir.Lutfen istediginiz sekli seciniz." << endl;//kullanıcıyı bilgilendirme
+	cout << "1-Duz Ucgen" << endl;
+	cout << "2-Ters Ucgen" << endl;
+	cout << "3-Elmas" <<endl;
+	cout << "0-Cikis" << endl;
+	int k,boyut,sorusayisi=0;
+	cin >> k;//kullanıcının istediği sayıyı alma
+	if(k==1){//istenilen düz üçgen ise
+		while(sorusayisi<3){//soru sayısı kontrolü
+			cout << "Lutfen ucgen boyutunuz icin 3 ve 15 arasinda bir sayi giriniz =";
+			cin >> boyut;
+			if(3<=boyut && boyut<=15 && boyut%2!=0){//kullanıcıdan alınan sayı 3 ile 15 arasında ve tek mi kontrol etme
+				duzucgen(boyut);
+				return 0;
+			}
+			else 
+			sorusayisi++;
+		}	
+	}
+	if(k==2){//istenilen ters üçgen ise
+		while(sorusayisi<3){//soru sayısı kontrolü
+			cout << "Lutfen ucgen boyutunuz icin 3 ve 15 arasinda bir sayi giriniz =";
+			cin >> boyut;
+			if(3<=boyut && boyut<=15 && boyut%2!=0){//kullanıcıdan alınan sayı 3 ile 15 arasında ve tek mi kontrol etme
+				tersucgen(boyut);
+				return 0;
+			}
+			else 
+			sorusayisi++;
+		}	
+	}
+	if(k==3){//istenilen elmas ise
+		while(sorusayisi<3){//soru sayısı kontrolü
+			cout << "Lutfen ucgen boyutunuz icin 5 ve 15 arasinda bir sayi giriniz =";
+			cin >> boyut;
+			if(5<=boyut && boyut<=15 && boyut%2!=0){//kullanıcıdan alınan sayı 5 ile 15 arasında ve tek mi kontrol etme
+				elmasust(boyut);
+				elmasalt(boyut);
+				return 0;
+			}
+			else 
+			sorusayisi++;
+		}	
+	}
+	if(k==0){//programdan çıkılmak isteniyorsa
+		return 0;
+	}
+	return 0;
+}
