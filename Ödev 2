@@ -9,7 +9,7 @@ using namespace std;
 
 const int i = sqrt(-1);
 
-class Complexnumber {//class tanımmlama
+class Complexnumber {//class tanımlama
 
 private:
     int real;
@@ -17,62 +17,62 @@ private:
 
 public:
 
-    Complexnumber() {//1.default constructor
+    Complexnumber() {//default constructor
         this->real = 0;
         this->imaginary = 0;
     }
 
-    Complexnumber(int a) {//2.conversion constructor
+    Complexnumber(int a) {//conversion constructor
         this->real = a;
         this->imaginary = 0;
     }
 
-    Complexnumber(double a) {//3.conversion constructor
+    Complexnumber(double a) {//conversion constructor
         this->real = a;
         this->imaginary = 0;
     }
 
-    void produce_cn(int a, int b) {//5.karmaşık sayı üreten constructor
+    void produce_cn(int a, int b) {//karmaşık sayı üreten constructor
         this->real = a;
         this->imaginary = b;
     };
 
-    void setreal(int reel) {//6 reel için setter
+    void setreal(int reel) {//reel için setter
         real = reel;
     };
 
-    int getreal() {//6 reel için getter
+    int getreal() {//reel için getter
         return real;
     };
 
-    void setimaginary(int imajiner) {//6 imajiner için setter
+    void setimaginary(int imajiner) {//imajiner için setter
         imaginary = imajiner;
     };
 
-    int getimaginary() {//6 imajiner için getter
+    int getimaginary() {//imajiner için getter
         return imaginary;
     };
 
 
-    void add(const Complexnumber x) { //7 aldığı karmaşık sayıyı kendine ekleyen member function
+    void add(const Complexnumber x) { //aldığı karmaşık sayıyı kendine ekleyen member function
         real += x.real;
         imaginary += x.imaginary;
         cout << "Sonuc=" << real << "+" << imaginary << "i" << endl;
     };
 
-    void subtract(const Complexnumber x) { //8 aldığı karmaşık sayıyı kendinden çıkaran member function
+    void subtract(const Complexnumber x) { //aldığı karmaşık sayıyı kendinden çıkaran member function
         real -= x.real;
         imaginary -= x.imaginary;
         cout << "Sonuc=" << real << "+" << imaginary << "i" << endl;
     };
 
-    void divide(const Complexnumber x) {//9 aldığı karmaşık sayıyı kendine bölen member function
+    void divide(const Complexnumber x) {//aldığı karmaşık sayıyı kendine bölen member function
         real /= x.real;
         imaginary /= x.imaginary;
         cout << "Sonuc=" << real << "+" << imaginary << "i" << endl;
     };
 
-    void print(const Complexnumber x) {//10 aldığı karmaşık sayıyı ekrana bastırır
+    void print(const Complexnumber x) {//aldığı karmaşık sayıyı ekrana bastırır
         cout << "Karmasik Sayi=" << x.real << "+" << x.imaginary << "i" << endl;
     };
 };
